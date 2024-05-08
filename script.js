@@ -22,7 +22,6 @@ async function translateText(text, targetLanguage) {
         method: 'POST'
     });
     const data = await response.json();
-    console.log('Translation response:', data);
 
     if (data.error) {
         throw new Error(data.error.message);
@@ -129,6 +128,33 @@ document.getElementById('languageSelect').addEventListener('change', async funct
                 issueTypeSelect.appendChild(option);
             }
         }
+    }
+});
+
+async function translateFeedback(text, sourceLanguage, targetLanguage) {
+    const response = await fetch(`https://translation.googleapis.com/language/translate/v2?key=AIzaSyDOATgZcmAHhQowNviYpGTv-uDcj8dBS28&source=${sourceLanguage}&target=${targetLanguage}&q=${text}`, {
+        method: 'POST'
+    });
+    const data = await response.json();
+    if (data.error) {
+        throw new Error(data.error.message);
+    }
+    return data.data.translations[0].translatedText;
+}
+
+document.getElementById('feedback').addEventListener('input', async function() {
+    const feedback = this.value;
+    const selectedLanguage = document.getElementById('languageSelect').value;
+    
+    try {
+        if (selectedLanguage !== 'en') {
+            const translatedFeedback = await translateFeedback(feedback, selectedLanguage, 'en');
+            document.getElementById('translatedFeedback').value = translatedFeedback;
+        } else {
+            document.getElementById('translatedFeedback').value = feedback;
+        }
+    } catch (error) {
+        console.error('Translation error:', error.message);
     }
 });
 
