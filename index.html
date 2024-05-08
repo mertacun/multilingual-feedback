@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multilingual Customer Feedback Hub - X Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 id="pageTitle">Multilingual Customer Feedback Hub - X Store</h1>
+    </header>
+    <div id="languageSelection" class="container">
+        <h2>Select Your Preferred Language:</h2>
+        <select id="languageSelect">
+            <option value="" selected disabled>Select Language</option>
+        </select>
+    </div>
+    <div id="feedbackForm" class="container hidden">
+        <h2 id="formTitle">Submit Your Feedback</h2>
+        <form id="issueForm">
+            <div class="form-group">
+                <label for="issueType">Issue Type:</label>
+                <select id="issueType" name="issueType" required>
+                    <option value="">Select an Issue Type</option>
+                    <option value="product_quality">Product Quality</option>
+                    <option value="cleanliness">Cleanliness</option>
+                    <option value="customer_service">Customer Service</option>
+                    <option value="store_facilities">Store Facilities</option>
+                    <option value="stock_availability">Stock Availability</option>
+                    <option value="pricing_concerns">Pricing Concerns</option>
+                    <option value="other">Other</option>
+                </select>                
+            </div>
+            <div class="form-group">
+                <label for="feedback">Your Feedback:</label><br>
+                <textarea id="feedback" name="feedback" rows="4" cols="50" placeholder="Write your feedback here..." required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="photo">Upload Photo (optional):</label><br>
+                <input type="file" id="photo" name="photo" accept="image/*">
+            </div>
+            <div class="form-group">
+                <label for="translatedFeedback">Translated Feedback:</label><br>
+                <textarea id="translatedFeedback" name="translatedFeedback" rows="4" cols="50" readonly></textarea>
+            </div>
+            <button type="submit">Submit Feedback</button>
+        </form>
+        <p id="thankYouMsg" class="hidden">Thank you for your feedback!</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
