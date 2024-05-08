@@ -34,7 +34,7 @@ function showThankYouMessage() {
     document.getElementById('thankYouMsg').classList.remove('hidden');
     setTimeout(() => {
         document.getElementById('thankYouMsg').classList.add('hidden');
-    }, 3000);
+    }, 7000);
 }
 
 document.getElementById('languageSelect').addEventListener('change', async function() {
@@ -54,7 +54,7 @@ document.getElementById('languageSelect').addEventListener('change', async funct
         const submitButton = document.getElementById('submit');
 
         try {
-            const translatedPageTitle = await translateText('Multilingual Customer Feedback Hub - X Store', selectedLanguage);
+            const translatedPageTitle = await translateText('Multilingual Customer Feedback Hub', selectedLanguage);
             const translatedLanguageSelection = await translateText('Select Your Preferred Language:', selectedLanguage);
             const translatedFormTitle = await translateText('Submit Your Feedback', selectedLanguage);
             const translatedIssueTypeLabel = await translateText('Issue Type:', selectedLanguage);
