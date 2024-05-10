@@ -97,6 +97,7 @@ document.getElementById('languageSelect').addEventListener('change', async funct
             document.getElementById('feedbackForm').classList.remove('hidden');
         } catch (error) {
             console.error('Translation error:', error.message);
+            document.getElementById('feedbackForm').classList.remove('hidden');
 
             pageTitle.textContent = 'Multilingual Customer Feedback Hub';
             languageSelection.textContent = 'Select Your Preferred Language:';
