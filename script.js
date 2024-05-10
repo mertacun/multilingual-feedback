@@ -98,7 +98,7 @@ document.getElementById('languageSelect').addEventListener('change', async funct
         } catch (error) {
             console.error('Translation error:', error.message);
 
-            pageTitle.textContent = 'Multilingual Customer Feedback Hub - X Store';
+            pageTitle.textContent = 'Multilingual Customer Feedback Hub';
             languageSelection.textContent = 'Select Your Preferred Language:';
             photoLabel.textContent = 'Upload Photo (optional):';
             formTitle.textContent = 'Submit Your Feedback';
