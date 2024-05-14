@@ -1,5 +1,5 @@
 async function fetchLanguages() {
-    const response = await fetch(`https://translation.googleapis.com/language/translate/v2/languages?key=AIzaSyDOATgZcmAHhQowNviYpGTv-uDcj8dBS28`);
+    const response = await fetch(`https://translation.googleapis.com/language/translate/v2/languages?key=${apiKey}`);
     const data = await response.json();
     return data.data.languages;
 }
@@ -18,7 +18,7 @@ async function populateLanguages() {
 
 async function translateText(text, targetLanguage) {
 
-    const response = await fetch(`https://translation.googleapis.com/language/translate/v2?key=AIzaSyDOATgZcmAHhQowNviYpGTv-uDcj8dBS28&source=en&target=${targetLanguage}&q=${text}`, {
+    const response = await fetch(`https://translation.googleapis.com/language/translate/v2?key=${apiKey}&source=en&target=${targetLanguage}&q=${text}`, {
         method: 'POST'
     });
     const data = await response.json();
@@ -133,7 +133,7 @@ document.getElementById('languageSelect').addEventListener('change', async funct
 });
 
 async function translateFeedback(text, sourceLanguage, targetLanguage) {
-    const response = await fetch(`https://translation.googleapis.com/language/translate/v2?key=AIzaSyDOATgZcmAHhQowNviYpGTv-uDcj8dBS28&source=${sourceLanguage}&target=${targetLanguage}&q=${text}`, {
+    const response = await fetch(`https://translation.googleapis.com/language/translate/v2?key=${apiKey}&source=${sourceLanguage}&target=${targetLanguage}&q=${text}`, {
         method: 'POST'
     });
     const data = await response.json();
